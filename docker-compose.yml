@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql  # Cambia a la versión que necesitas
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: RHLMGYM
+      MYSQL_USER: carlitos
+      MYSQL_PASSWORD: carlitos
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
