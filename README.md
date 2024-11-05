@@ -1,2 +1,3 @@
 # RHLM_Gym
-Acá se va a desarrollar el software para el Real *hasta la muerte GYM*
+Para correr este proyecto en la raiz primero debe hacer docker compose up -d
+
