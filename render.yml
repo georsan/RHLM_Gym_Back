@@ -1,0 +1,15 @@
+services:
+  # A web service on the Ruby native runtime
+  - type: web
+    runtime: java
+    name: RHLM_back
+    repo: https://github.com/georsan/RHLM_Gym_Back # Default: Repo containing render.yaml
+    numInstances: 1  # Manual scaling configuration. Default: 1 for new services
+    region: oregon # Default: oregon
+    plan: starter    # Default: starter
+    branch: master      # Default: master
+    buildCommand: mvn clean install
+    preDeployCommand:
+    startCommand: java -jar target/RHLM_Gym_Back.jar
+    autoDeploy: false # Disable automatic deploys
+    maxShutdownDelaySeconds: 120 # Increase graceful shutdown period. Default: 30, Max: 300
