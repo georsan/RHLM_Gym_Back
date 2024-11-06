@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-01T20:02:16-0500",
+    date = "2024-11-05T20:22:22-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.13 (Amazon.com Inc.)"
 )
 public class MaquinaMusculoMapperImpl implements MaquinaMusculoMapper {

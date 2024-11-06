@@ -1,4 +1,14 @@
 services:
+  app:
+    image: 'docker-rhlm-back:lastet'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+
   mysql:
     image: mysql  # Cambia a la versión que necesitas
     environment:
