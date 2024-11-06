@@ -1,7 +1,7 @@
 services:
   # A web service on the Ruby native runtime
   - type: web
-    runtime: java
+    runtime: java17
     name: RHLM_back
     repo: https://github.com/georsan/RHLM_Gym_Back # Default: Repo containing render.yaml
     numInstances: 1  # Manual scaling configuration. Default: 1 for new services
