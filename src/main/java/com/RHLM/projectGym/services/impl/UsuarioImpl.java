@@ -5,6 +5,7 @@ import com.RHLM.projectGym.exception.DataNotFoundException;
 import com.RHLM.projectGym.mapper.UsuarioMapper;
 import com.RHLM.projectGym.model.Usuario;
 import com.RHLM.projectGym.repository.IUsuarioRepository;
+import com.RHLM.projectGym.services.interfaces.ISuscripcionService;
 import com.RHLM.projectGym.services.interfaces.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +21,13 @@ public class UsuarioImpl implements IUsuarioService {
 
     @Autowired
     private IUsuarioRepository usuarioRepository;
+    @Autowired
+    private ISuscripcionService suscripcionService;
 
     @Override
     public List<UsuarioDTO> getAll() {
         List<Usuario> usuarioList = this.usuarioRepository.findAll();
+
         return usuarioList.stream().map(UsuarioMapper.INSTANCE::toUsuarioDTO).collect(Collectors.toList());
     }
 
@@ -36,6 +40,8 @@ public class UsuarioImpl implements IUsuarioService {
 
     @Override
     public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
+        var suscripcionId= this.suscripcionService.createSuscripcion(usuarioDTO.getSuscripcion()).getId();
+        usuarioDTO.setIdSuscripcion(suscripcionId);
         Usuario data = UsuarioMapper.INSTANCE.toUsario(usuarioDTO);
         Usuario usuario = this.usuarioRepository.save(data);
         return UsuarioMapper.INSTANCE.toUsuarioDTO(usuario);

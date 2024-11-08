@@ -17,5 +17,6 @@ public class UsuarioDTO implements Serializable {
     private String tipoCuerpo;
     private String porcentajeGraso;
     private String objetivo;
+    private  SuscripcionDTO suscripcion;
 
 }

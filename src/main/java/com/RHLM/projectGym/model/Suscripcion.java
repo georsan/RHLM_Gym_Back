@@ -40,7 +40,6 @@ public class Suscripcion implements Serializable {
 
     //Relaciones
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_tipo_suscripcion",insertable = false,updatable = false)
     private TipoSuscripcion tipoSuscripcion;
